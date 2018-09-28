@@ -2,6 +2,7 @@
 
 #TODO: Update the script so that you can input certain years/modules
 #TODO: Update the following usage function accordingly
+
 usage() {
 cat << EOF
 USAGE:
@@ -10,7 +11,7 @@ EOF
 # Takes the name of the output file as an argument and 
 # merges all md files in the directory into 1 pdf file
 makepdf() {
-    pandoc *.md --pdf-engine=xelatex -o "${1}.pdf" &&
+    pandoc *.md --pdf-engine=xelatex --toc -V geometry:margin=1in -o "${1}.pdf" &&
     echo -e "\e[92m┃ ┗━━ Created ${1}.pdf"
 }
 
